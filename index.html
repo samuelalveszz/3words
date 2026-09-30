@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f7f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101311" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="Three thoughtful words a day, with gentle spaced repetition." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Three Words" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon-180.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Three Words</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#today" aria-label="Three Words — Today">
+          <span class="brand-mark" aria-hidden="true">3</span>
+          <span>Three Words</span>
+        </a>
+        <div class="top-actions">
+          <button class="icon-button" id="themeButton" aria-label="Change colour theme" title="Change theme">◐</button>
+          <button class="icon-button" id="settingsButton" aria-label="Open settings" title="Settings">⚙</button>
+        </div>
+      </header>
+
+      <main id="app" tabindex="-1">
+        <section class="view active" id="todayView" aria-labelledby="todayTitle">
+          <div class="today-heading">
+            <p class="eyebrow" id="greeting">Good morning 👋</p>
+            <div class="heading-row">
+              <div>
+                <h1 id="todayTitle">Your 3 words today</h1>
+                <p>Try to remember them before you peek.</p>
+              </div>
+              <div class="day-pill" id="datePill">Today</div>
+            </div>
+          </div>
+          <div class="word-stack" id="todayWords" aria-live="polite">
+            <article class="word-card placeholder-card">
+              <div><span class="word-number">01</span><h2>hinder</h2><p>Can you remember it?</p></div>
+              <button class="reveal-button" type="button">Show meaning</button>
+            </article>
+            <article class="word-card placeholder-card">
+              <div><span class="word-number">02</span><h2>bicker</h2><p>Can you remember it?</p></div>
+              <button class="reveal-button" type="button">Show meaning</button>
+            </article>
+            <article class="word-card placeholder-card">
+              <div><span class="word-number">03</span><h2>stunning</h2><p>Can you remember it?</p></div>
+              <button class="reveal-button" type="button">Show meaning</button>
+            </article>
+          </div>
+          <footer class="daily-finish">
+            <span aria-hidden="true">✓</span>
+            <p><strong>3 words.</strong> That’s all for today.</p>
+          </footer>
+        </section>
+
+        <section class="view" id="addView" aria-labelledby="addTitle" hidden></section>
+        <section class="view" id="wordsView" aria-labelledby="wordsTitle" hidden></section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <a href="#today" class="nav-item active" data-route="today"><span class="nav-icon">⌂</span><span>Today</span></a>
+        <a href="#add" class="nav-item nav-add" data-route="add"><span class="nav-icon">＋</span><span>Add</span></a>
+        <a href="#words" class="nav-item" data-route="words"><span class="nav-icon">Aa</span><span>Words</span></a>
+      </nav>
+    </div>
+    <div id="overlayRoot"></div>
+    <div id="toastRoot" class="toast-root" aria-live="polite"></div>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
